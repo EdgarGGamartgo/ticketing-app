@@ -14,7 +14,9 @@ app.set('trust proxy', true)
 app.use(json())
 app.use(cookieSession({
   signed: false,
-  secure: true
+  secure: process.env.NODE_ENV !== 'test'  
+// This allows request comming only from https connections.
+// Plain http requests will not work.
 }))
 app.use(currentUserRouter)
 app.use(signinRouter)
