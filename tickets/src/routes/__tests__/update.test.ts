@@ -26,7 +26,7 @@ it('returns a 404 if the user is not authenticated', async () => {
             title: 'eadsdas',
             price: 20
         })
-        .expect(404)
+        .expect(401)
 })
 
 it('returns a 404 if the user does not own the ticket', async () => {
@@ -45,7 +45,7 @@ it('returns a 404 if the user does not own the ticket', async () => {
         title: 'qazxd',
         price: 120
     })
-    .expect(404)
+    .expect(401)
 
 })
 

@@ -3,17 +3,17 @@ import { app } from '../../app'
 import { Ticket } from '../../models/ticket'
 import { natsWrapper } from '../../nats-wrapper'
 
-it('has a route handler listening to /api/tickets for post requests', async () => {
-   const response = await request(app).post('/api/tickets').send({})
+// it('has a route handler listening to /api/tickets for post requests', async () => {
+//    const response = await request(app).post('/api/tickets').send({})
 
-   expect(response.status).not.toEqual(401)
-})
+//    expect(response.status).not.toEqual(401)
+// })
 
 it('can only be accessed if the user is signed in', async () => {
     await request(app)
         .post('/api/tickets')
         .send({})
-        .expect(404)
+        .expect(401)
 })
 
 it('return a status other than 404 if the user is signed in', async () => {
